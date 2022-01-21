@@ -1,27 +1,26 @@
 class FileHandler:
-    def get_data_from_file(self, file_name: str) -> list:
-        return self.read_file(file_name)
 
-    def read_file(self, file_name: str) -> list:
+    def get_data(self, path: str) -> list:
         contents = []
-        file = './source/data/' + file_name
         try:
-            with open(file, 'r') as x:
+            with open(path, 'r') as x:
                 content = x.read()
             contents = list(map(int, content.split(' ')))
-
         except FileNotFoundError:
-            print(f'File {file_name} was not found.')
+            if path:
+                print(f"File at location '{path}' was not found.")
+            else:
+                print("You haven't choose any file.")
             exit()
-
         return contents
 
-    def save_data(self, file_name, data):
-        file = './source/data/' + file_name
-        to_save = " ".join(str(data))
+    def save_data(self, file_path, data):
         try:
-            with open(file, 'w') as x:
-                x.write(to_save)
+            to_save = " ".join(str(data))
+            with open(file_path, 'w') as x:
+                for row in data:
+                    row = str(row) + " "
+                    x.write(row)
             print("Saved to a file successfully.")
         except:
             print("Couldn't save to a file.")
