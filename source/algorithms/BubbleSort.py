@@ -1,7 +1,8 @@
 class BubbleSort:
-    def sort_asc(self, data):
+    def sort_asc(self, data: list) -> list:
         if len(data) < 1:
             return []
+
         sorted = False
         while not sorted:
             sorted = True
@@ -11,9 +12,10 @@ class BubbleSort:
                     data[i], data[i+1] = data[i+1], data[i]
         return data
 
-    def sort_desc(self, data):
+    def sort_desc(self, data: list) -> list:
         if len(data) < 1:
             return []
+
         sorted = False
         while not sorted:
             sorted = True

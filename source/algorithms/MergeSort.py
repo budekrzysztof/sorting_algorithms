@@ -18,7 +18,7 @@ class MergeSort:
             new_nums.append(second_half_nums[pos2])
             pos2 += 1
 
-    def sort_asc(self, nums: list):
+    def sort_asc(self, nums: list) -> list:
         size = len(nums)
         if size <= 1:
             return []
@@ -57,7 +57,7 @@ class MergeSort:
             new_nums.append(second_half_nums[pos2])
             pos2 += 1
 
-    def sort_desc(self, nums: list):
+    def sort_desc(self, nums: list) -> list:
         size = len(nums)
         if size <= 1:
             return []
